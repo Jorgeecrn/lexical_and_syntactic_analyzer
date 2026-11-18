@@ -1,0 +1,5 @@
+class A{
+a:Int,
+b:Int,
+f(x):Int {B};
+};

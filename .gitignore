@@ -1,0 +1,30 @@
+# --- Entorno virtual (se regenera desde pyproject.toml / uv.lock) ---
+.venv/
+venv/
+env/
+
+# --- Bytecode de Python ---
+__pycache__/
+*.py[cod]
+*.pyo
+
+# --- Configuracion del IDE (PyCharm) ---
+.idea/
+.vscode/
+
+# --- Salidas generadas por el corrector y por SLY ---
+# .nuestro / .bien los crea main.py al fallar un test
+*.nuestro
+*.bien
+# tabla LALR que genera el parser (debugfile)
+salida.out
+parser.out
+parsetab.py
+
+# --- Sistema operativo ---
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# --- Temporales ---
+.__test

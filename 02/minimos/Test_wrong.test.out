@@ -1,0 +1,5 @@
+Error despues definición de a:Int en la linea 2, no sería ;?
+Error despues definición de b:Int en la linea 3, no sería ;?
+Error sintáctico en la línea 4, token TYPEID con valor B
+Error en la definición de x en la linea 4, no faltaría el tipo?
+Compilation halted due to lex and parse errors
