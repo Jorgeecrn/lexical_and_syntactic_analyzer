@@ -30,7 +30,7 @@ if True:
         if os.path.isfile(os.path.join(DIR, fich)+'.nuestro'):
             os.remove(os.path.join(DIR, fich)+'.nuestro')
         if os.path.isfile(os.path.join(DIR, fich)+'.bien'):
-          .ve     os.remove(os.path.join(DIR, fich)+'.bien')            
+            os.remove(os.path.join(DIR, fich)+'.bien')            
         texto = ''
         entrada = f.read()
         f.close()
