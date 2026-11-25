@@ -18,6 +18,17 @@ class CoolLexer(Lexer):
     literals = {}
     # Ejemplo
     ELSE = r'\b[eE][lL][sS][eE]\b'
+    
+    @_(r'\b[t][rR][uU][eE]\b')
+    def BOOL_CONST(self, t):
+        t.type = 'BOOL_CONST'
+        return t
+
+    @_(r'\b[T][rR][uU][eE]\b')
+    def TYPEID(self, t):
+        t.type = 'TYPEID'
+        return t
+
 
     CARACTERES_CONTROL = [bytes.fromhex(i+hex(j)[-1]).decode('ascii')
                           for i in ['0', '1']
