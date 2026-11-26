@@ -210,3 +210,16 @@ class CoolLexer(Lexer):
         t.type= 'TYPEID'
         return t
     #####################################################
+
+
+    # endcommment #######################################
+    @_(r'\b(T(?i:his))\b')
+    def type_this(self, t):
+        t.type = 'TYPEID'
+        return t
+
+    @_(r'\*\)')
+    def unmatched_comment(self, t):
+        t.type = 'ERROR'
+        t.value = '"Unmatched *)"'
+        return t
