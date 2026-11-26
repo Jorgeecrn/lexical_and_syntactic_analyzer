@@ -16,8 +16,8 @@ CALIFICACION = "minimos" # Para un reto mayor cambiar a "grading"
 DIR = os.path.join(DIRECTORIO, PRACTICA, CALIFICACION)
 FICHEROS = os.listdir(DIR)
 TESTS = [fich for fich in FICHEROS
-         if os.path.isfile(os.path.join(DIR, fich)) and
-         re.search(r"^[a-zA-Z].*\.(cool|test|cl)$", fich)]
+        if os.path.isfile(os.path.join(DIR, fich)) and
+        re.search(r"^[a-zA-Z].*\.(cool|test|cl)$", fich)]
 TESTS.sort()
 
 
@@ -65,7 +65,7 @@ if True:
             try:
                 if j and not parser.errores:
                     resultado = '\n'.join([c for c in j.str(0).split('\n')
-                                           if c and '#' not in c])
+                                        if c and '#' not in c])
                 else:
                     resultado = '\n'.join(parser.errores)
                     resultado += '\n' + "Compilation halted due to lex and parse errors"

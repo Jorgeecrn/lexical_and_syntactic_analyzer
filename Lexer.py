@@ -42,15 +42,6 @@ class CoolLexer(Lexer):
     # Ejemplo
     ELSE = r"\b[eE][lL][sS][eE]\b"
 
-    @_(r"\b(t(?i:rue)|f(?i:alse))\b")
-    def BOOL_CONST(self, t):
-        t.value = t.value.lower() == 'true'
-        return t
-
-    @_(r"\b[T][rR][uU][eE]\b")
-    def TYPEID(self, t):
-        t.type = "TYPEID"
-        return t
 
     CARACTERES_CONTROL = [
         bytes.fromhex(i + hex(j)[-1]).decode("ascii")
@@ -93,6 +84,19 @@ class CoolLexer(Lexer):
             list_strings.append(result)
         return list_strings
 
+    # all_else_true #######################################
+    @_(r"\b(t(?i:rue)|f(?i:alse))\b")
+    def BOOL_CONST(self, t):
+        t.value = t.value.lower() == 'true'
+        return t
+
+    @_(r"\b[T][rR][uU][eE]\b")
+    def TYPEID(self, t):
+        t.type = "TYPEID"
+        return t
+    #######################################################
+
+    # keywords ############################################
     @_(r"\b[cC][aA][sS][eE]\b")
     def CASE(self, t):
         t.type = "CASE"
@@ -172,4 +176,4 @@ class CoolLexer(Lexer):
     def WHILE(self, t):
         t.type = 'WHILE'
         return t
-    
+    #######################################################
