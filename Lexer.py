@@ -16,7 +16,8 @@ class CoolLexer(Lexer):
               POOL, THEN, WHILE, NUMBER, STR_CONST, LE, DARROW, ASSIGN, ERROR}
     #ignore = '\t '
     literals = {}
-    # Ejemplo
+
+    #al else true
     ELSE = r'\b[eE][lL][sS][eE]\b'
     
     @_(r'\b[t][rR][uU][eE]\b')
