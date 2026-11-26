@@ -15,7 +15,7 @@ class CoolLexer(Lexer):
               INHERITS, ISVOID, LET, LOOP, NEW, OF,
               POOL, THEN, WHILE, NUMBER, STR_CONST, LE, DARROW, ASSIGN, ERROR}
     #ignore = '\t '
-    literals = {}
+    literals = {';'}
 
     #al else true
     ELSE = r'\b[eE][lL][sS][eE]\b'
@@ -28,6 +28,56 @@ class CoolLexer(Lexer):
     @_(r'\b[T][rR][uU][eE]\b')
     def TYPEID(self, t):
         t.type = 'TYPEID'
+        return t
+
+    #BAD KEYWORDS
+
+    #TIPO False
+    @_(r'\b[F][aA][lL][sS][eE]\b')
+    def type_false(self, t):
+        t.type = 'TYPEID'
+        return t
+
+    #TIPO CASE
+    @_(r'\b[Cc][aA][sS][eE]\b')
+    def CASE(self, t):
+        t.type='CASE'
+        return t
+
+    #TIPO ESAC
+    @_(r'\b[Ee][Ss][Aa][Cc]\b')
+    def ESAC(self, t):
+        t.type='ESAC'
+        return t
+
+    #TIPO LOOP
+    @_(r'\b[Ll][oO][oO][pP]\b')
+    def LOOP(self, t):
+        t.type='LOOP'
+        return t
+
+    #tipo THEN
+    @_(r'\b[Tt][Hh][Ee][Nn]\b')
+    def THEN(self, t):
+        t.type='THEN'
+        return t
+
+    #TIPO OBJECTID
+    @_(r'\b[a-z][a-zA-Z0-9_]*\b')
+    def OBJECTID(self, t):
+        t.type= 'OBJECTID'
+        return t
+
+    #TIPO Oid
+    @_(r'\b[O][iI][dD]\b')
+    def Oid_type(self, t):
+        t.type= 'TYPEID'
+        return t
+
+    #TIPO LOOPNEW
+    @_(r'\b[L][oO][oO][pP][nN][eE][wW]\b')
+    def Loopnew_typeid(self, t):
+        t.type= 'TYPEID'
         return t
 
 
@@ -70,7 +120,6 @@ class CoolLexer(Lexer):
                 result = f'#{token.lineno} {token.type}'
             list_strings.append(result)
         return list_strings
-
 
 
     
