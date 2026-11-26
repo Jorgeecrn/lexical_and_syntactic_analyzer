@@ -39,6 +39,11 @@ class CoolLexer(Lexer):
     }
     # ignore = '\t '
     literals = {}
+
+    # s03.test. Ignorar comentarios de linea ###################
+    ignore_comentario_linea = r'--.*'
+    ############################################################
+
     # Ejemplo
     ELSE = r"\b[eE][lL][sS][eE]\b"
 
