@@ -177,3 +177,31 @@ class CoolLexer(Lexer):
         t.type = 'WHILE'
         return t
     #######################################################
+
+
+    #BAD KEYWORDS #########################################
+    
+    #TIPO False
+    @_(r'\b[F][aA][lL][sS][eE]\b')
+    def type_false(self, t):
+        t.type = 'TYPEID'
+        return t
+
+    #TIPO OBJECTID
+    @_(r'\b[a-z][a-zA-Z0-9_]*\b')
+    def OBJECTID(self, t):
+        t.type= 'OBJECTID'
+        return t
+
+    #TIPO Oid
+    @_(r'\b[O][iI][dD]\b')
+    def Oid_type(self, t):
+        t.type= 'TYPEID'
+        return t
+
+    #TIPO LOOPNEW
+    @_(r'\b[L][oO][oO][pP][nN][eE][wW]\b')
+    def Loopnew_typeid(self, t):
+        t.type= 'TYPEID'
+        return t
+    #####################################################
